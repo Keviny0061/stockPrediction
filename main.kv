@@ -1,0 +1,33 @@
+<StockApp>:
+    orientation: 'vertical'
+    spacing: 20
+
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.9, 0.9, 1  # Light gray background
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    Label:
+        text: 'Stock Analysis App'
+        font_size: 32
+        size_hint_y: None
+        height: 44
+
+    Widget:
+        # This will act as a spacer
+        size_hint_y: 0.1
+
+    TextInput:
+        id: ticker_input
+        hint_text: 'Enter Stock Ticker'
+        multiline: False
+        size_hint_y: None
+        height: 88
+
+    Button:
+        text: 'Fetch Data'
+        size_hint_y: None
+        height: 88
+        on_press: root.fetch_stock_data()
