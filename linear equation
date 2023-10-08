@@ -1,0 +1,17 @@
+import torch
+from model import CustomLinearRegression  # Import your trained model class here
+
+# Create and train the model (assuming you have already trained it)
+model = CustomLinearRegression(input_dim=1)  # Replace input_dim with the actual input dimension
+# ... training code ...
+
+# Get the learned bias and coefficients
+bias = model.linear.bias.item()
+coefficients = model.linear.weight.data.numpy()[0]  # Assuming a 1D weight tensor
+
+# Print the linear equation
+print("Linear Equation:")
+equation = f"y = {bias:.4f}"
+for i, coeff in enumerate(coefficients):
+    equation += f" + {coeff:.4f} * x_{i+1}"
+print(equation)
